@@ -1,0 +1,8 @@
+flask
+flask-cors
+twilio
+deepgram-sdk
+groq
+python-dotenv
+gunicorn
+requests
