@@ -240,8 +240,22 @@ def voice_status():
             print(f"[Call: {call_sid}] History cleared.")
 
     return {"status": "ok"}
+#for testing and avoid cost and now free upto free tair
+from twilio.rest import Client
 
+client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
+@app.route("/make-call", methods=["POST"])
+def make_call():
+    user_number = request.json.get("phone")
+
+    call = client.calls.create(
+        to=user_number,
+        from_=TWILIO_PHONE_NUMBER,
+        url="https://moksharide-voice-support.onrender.com"
+    )
+
+    return {"status": "calling", "call_sid": call.sid}
 if __name__ == "__main__":
     port  = int(os.environ.get("PORT", 10000))
     debug = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
