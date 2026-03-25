@@ -252,7 +252,7 @@ def make_call():
     call = client.calls.create(
         to=user_number,
         from_=TWILIO_PHONE_NUMBER,
-        url="https://moksharide-voice-support.onrender.com"
+        url="https://moksharide-voice-support.onrender.com/voice"
     )
 
     return {"status": "calling", "call_sid": call.sid}
