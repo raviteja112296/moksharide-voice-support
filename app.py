@@ -78,7 +78,7 @@ def health():
 
 
 # ── Step 1: User calls your Twilio number ─────────────────────
-@app.route("/voice", methods=["POST"])
+@app.route("/voice", methods=["GET", "POST"])
 def voice():
     call_sid = request.form.get("CallSid", "unknown")
 
@@ -118,7 +118,7 @@ def voice():
 
 
 # ── Step 2: User spoke → AI understands → replies ─────────────
-@app.route("/voice-reply", methods=["POST"])
+@app.route("/voice-reply", methods=["GET", "POST"])
 def voice_reply():
     call_sid    = request.form.get("CallSid", "unknown")
     spoken_text = request.form.get("SpeechResult", "").strip()
