@@ -243,7 +243,7 @@ def voice_status():
 
 
 if __name__ == "__main__":
-    port  = int(os.environ.get("PORT", 5002))
+    port  = int(os.environ.get("PORT", 10000))
     debug = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
     print(f"MokshaRide Voice AI running on http://0.0.0.0:{port}")
     app.run(host="0.0.0.0", port=port, debug=debug)
